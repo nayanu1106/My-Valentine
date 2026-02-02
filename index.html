@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will you be my Valentine?💖</title>
+  <style>
+    body {
+      background: #ffe5d9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .hidden{
+        display: none;
+    }
+    
+    #noMsg{
+        font-size: 13px;
+        color: #d16c8c;
+        margin-top: 15px;
+        font-style: italic;
+    }
+    
+    .top-img{
+        width:80px;
+        margin-bottom: 2px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .box {
+      background: #ffffff;
+      color: #7a2e2e;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      width: 390px;
+      position: relative;
+    }
+
+    .box h2{
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 22px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      font-size: 16px;
+      position: relative;
+    }
+
+    #yes {
+      background:#f62a17;
+      color: white;
+    }
+
+    #no {
+      position: absolute;
+      background: #ffd1cc;
+    }
+  </style>
+</head>
+
+<body>
+    
+    <div class="box" id="card">
+    <img src="cat.png" alt="cute cat" class="top-img">
+    <h2>hey my cute koranga🐒!!!!!! will you be my valentine?💖</h2>
+
+    <button id="yes" onclick="yesClicked()">Yes</button>
+    <button id="no" onmouseenter="moveNo()" onmouseover="moveNo()" onclick="return false;">No</button>
+    <p id="noMsg" class="hidden"> Aww...No ran away already 😉</p>
+  </div>
+  
+  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" style="display: none;" alt ="preload">
+  <script>
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      const box = document.querySelector(".box");
+      const msg = document.getElementById("noMsg");
+      msg.style.display = "block"
+
+      const x = Math.random() * (box.offsetWidth - noBtn.offsetWidth);
+      const y = Math.random() * (box.offsetHeight - noBtn.offsetHeight - 40);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    function yesClicked() {
+      const card = document.getElementById("card");
+      card.innerHTML = `
+        <img src="cat.png" alt="cute cat" class="top-img">
+        <h2>YAY!!! 😎🎉💖</h2>
+        <p>I knew you'd say YES 😘</p>
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" 
+             width="250" style="border-radius:12px;">
+      `;
+    }
+  </script>
+</body>
+</html>
